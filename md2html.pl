@@ -51,5 +51,11 @@ for (@line) {
 open OUT, ">$dir/$base.html";
 binmode(OUT, ':encoding(utf8)');
 my $tx = Text::Xslate->new();
-print OUT $tx->render('template.html', { deckjs_path => $relpath, theme => $theme, title => $title, content => mark_raw($content), footer => $footer });
+print OUT $tx->render('template.html', {
+    deckjs_path => $relpath,
+    theme => $theme,
+    title => $title,
+    content => mark_raw($content),
+    footer => $footer,
+});
 close OUT;
