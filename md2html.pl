@@ -50,7 +50,7 @@ for (@line) {
 # generate output html from template
 open OUT, ">$dir/$base.html";
 binmode(OUT, ':encoding(utf8)');
-my $tx = Text::Xslate->new();
+my $tx = Text::Xslate->new(cache => 0);
 print OUT $tx->render('template.html', {
     deckjs_path => $relpath,
     theme => $theme,
