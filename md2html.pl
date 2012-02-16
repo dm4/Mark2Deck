@@ -42,6 +42,7 @@ for (@line) {
     $_ = ($isFirst-- > 0) ? "<div class=\"slide\" id=\"$1\">" : "</div><div class=\"slide\" id=\"$1\">" if m|^<p>!!([\w+-_]+)</p>$|;
     s|^<p>!!</p>$|</div>|;
     s|^<li>(<p>)?!! (.*)$|<li class="slide">$1$2|;
+    s|^<p>!!<img (.*)$|<p><img class="slide" $1|;
     s|^<li( class="slide")?>(<p>)?#### ?(.*?)(</li>)?$|<li$1>$2<h4>$3</h4>$4|;
     s|^<li( class="slide")?>(<p>)?### ?(.*?)(</li>)?$|<li$1>$2<h3>$3</h3>$4|;
     $content .= $_."\n";
